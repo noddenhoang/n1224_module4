@@ -6,19 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDate;
-import java.util.UUID;
-
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Employee {
-    UUID id;
+public class Department {
+    Integer id;
     String name;
-    LocalDate dob;
-    Gender gender;
-    Double salary;
-    String phone;
-    Integer departmentId;
 }
