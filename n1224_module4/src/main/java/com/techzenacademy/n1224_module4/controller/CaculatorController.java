@@ -1,4 +1,4 @@
-package com.techzenacademy.n1224_module4;
+package com.techzenacademy.n1224_module4.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,5 +1,6 @@
-package com.techzenacademy.n1224_module4;
+package com.techzenacademy.n1224_module4.model;
 
+import com.techzenacademy.n1224_module4.enums.Gender;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.techzenacademy.n1224_module4;
+package com.techzenacademy.n1224_module4.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

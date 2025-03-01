@@ -1,4 +1,4 @@
-package com.techzenacademy.n1224_module4;
+package com.techzenacademy.n1224_module4.util;
 
 import com.techzenacademy.n1224_module4.dto.ApiResponse;
 import org.springframework.http.HttpStatus;
