@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -14,12 +15,18 @@ import java.util.UUID;
 @AllArgsConstructor
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
 public class Employee {
+    @Id
+    @GeneratedValue(generator = "UUID")
     UUID id;
     String name;
     LocalDate dob;
+    @Column(columnDefinition = "ENUM('MALE', 'FEMALE')")
+    @Enumerated(EnumType.STRING)
     Gender gender;
     Double salary;
     String phone;
-    Integer departmentId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    Department department;
 }

@@ -2,6 +2,7 @@ package com.techzenacademy.n1224_module4.repository.impl;
 
 import com.techzenacademy.n1224_module4.dto.EmployeeSearchRequest;
 import com.techzenacademy.n1224_module4.enums.Gender;
+import com.techzenacademy.n1224_module4.model.Department;
 import com.techzenacademy.n1224_module4.model.Employee;
 import com.techzenacademy.n1224_module4.repository.IEmployeeRepository;
 import org.springframework.stereotype.Repository;
@@ -73,7 +74,11 @@ public class EmployeeRepository implements IEmployeeRepository {
                     employee.setGender(Gender.valueOf(resultSet.getString("gender")));
                     employee.setSalary(resultSet.getDouble("salary"));
                     employee.setPhone(resultSet.getString("phone"));
-                    employee.setDepartmentId(resultSet.getInt("department_id"));
+
+                    Department department = new Department();
+                    department.setId(Integer.parseInt(resultSet.getString("department_id")));
+                    employee.setDepartment(department);
+
                     employeeList.add(employee);
                 }
             }
@@ -100,7 +105,7 @@ public class EmployeeRepository implements IEmployeeRepository {
                     preparedStatement.setString(3, employee.getGender().name());
                     preparedStatement.setDouble(4, employee.getSalary());
                     preparedStatement.setString(5, employee.getPhone());
-                    preparedStatement.setInt(6, employee.getDepartmentId());
+                    preparedStatement.setString(6, employee.getDepartment().getId().toString());
                     preparedStatement.setString(7, employee.getId().toString());
                     preparedStatement.executeUpdate();
                 }
@@ -114,7 +119,7 @@ public class EmployeeRepository implements IEmployeeRepository {
                     preparedStatement.setString(4, employee.getGender().name());
                     preparedStatement.setDouble(5, employee.getSalary());
                     preparedStatement.setString(6, employee.getPhone());
-                    preparedStatement.setInt(7, employee.getDepartmentId());
+                    preparedStatement.setString(7, employee.getDepartment().getId().toString());
                     preparedStatement.executeUpdate();
                 }
             }
@@ -141,7 +146,11 @@ public class EmployeeRepository implements IEmployeeRepository {
                     employee.setGender(Gender.valueOf(resultSet.getString("gender")));
                     employee.setSalary(resultSet.getDouble("salary"));
                     employee.setPhone(resultSet.getString("phone"));
-                    employee.setDepartmentId(resultSet.getInt("department_id"));
+
+                    Department department = new Department();
+                    department.setId(Integer.parseInt(resultSet.getString("department_id")));
+                    employee.setDepartment(department);
+
                     return Optional.of(employee);
                 }
             }
