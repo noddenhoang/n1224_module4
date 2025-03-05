@@ -21,7 +21,7 @@ public class EmployeeSearchRequest {
     LocalDate dobTo;
 
     Gender gender;
-    String slaryRange;
+    String salaryRange;
     String phone;
     Integer departmentId;
 }
