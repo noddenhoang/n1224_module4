@@ -1,13 +1,13 @@
 package com.techzenacademy.n1224_module4.model;
 
 import com.techzenacademy.n1224_module4.enums.Gender;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
 

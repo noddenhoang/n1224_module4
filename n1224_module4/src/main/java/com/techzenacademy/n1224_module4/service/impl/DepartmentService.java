@@ -12,16 +12,16 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class DepartmentService implements IDepartmentService {
-    private final IDepartmentRepository departmentRepository;
+    IDepartmentRepository departmentRepository;
 
     @Override
-    public List<Department> getAll() {
-        return departmentRepository.getAll();
+    public List<Department> findAll() {
+        return departmentRepository.findAll();
     }
 
     @Override
-    public Optional<Department> findById(Integer id) {
-        return departmentRepository.findById(id);
+    public Optional<Department> findById(Integer departmentId) {
+        return departmentRepository.findById(departmentId);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class DepartmentService implements IDepartmentService {
     }
 
     @Override
-    public void deleteDepartment(Integer id) {
-        departmentRepository.deleteDepartment(id);
+    public void delete(Integer departmentId) {
+        departmentRepository.deleteById(departmentId);
     }
 }

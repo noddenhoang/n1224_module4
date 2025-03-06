@@ -22,7 +22,7 @@ public class EmployeeController {
     IEmployeeService employeeService;
 
     @GetMapping
-    public ResponseEntity<?> getAll(EmployeeSearchRequest employeeSearchRequest) {
+    public ResponseEntity<?> getEmployees(EmployeeSearchRequest employeeSearchRequest) {
         return JsonResponse.ok(employeeService.findByAttributes(employeeSearchRequest));
     }
 

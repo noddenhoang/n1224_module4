@@ -19,7 +19,7 @@ public class DepartmentController {
 
     @GetMapping
     public ResponseEntity<?> getAll() {
-        return JsonResponse.ok(departmentService.getAll());
+        return JsonResponse.ok(departmentService.findAll());
     }
 
     @GetMapping("/{id}")
@@ -39,7 +39,7 @@ public class DepartmentController {
         departmentService.findById(department.getId())
                 .orElseThrow(() -> new AppException(ErrorCode.DEPARTMENT_NOT_EXIST));
 
-        departmentService.deleteDepartment(department.getId());
+        departmentService.delete(department.getId());
         return ResponseEntity.ok(JsonResponse.ok("Departmant deleted successfully"));
     }
 }

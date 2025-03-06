@@ -1,16 +1,8 @@
 package com.techzenacademy.n1224_module4.repository;
 
 import com.techzenacademy.n1224_module4.model.Department;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-import java.util.Optional;
-
-public interface IDepartmentRepository {
-    List<Department> getAll();
-
-    Optional<Department> findById(Integer departmentId);
-
-    Department save(Department department);
-
-    void deleteDepartment(Integer departmentId);
+public interface IDepartmentRepository extends JpaRepository<Department, Integer> {
+    Integer id(Integer id);
 }

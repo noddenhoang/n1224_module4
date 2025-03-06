@@ -21,7 +21,15 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public List<Employee> findByAttributes(EmployeeSearchRequest employeeSearchRequest) {
-        return employeeRepository.findByAttributes(employeeSearchRequest);
+        return employeeRepository.findByAttributes(
+                employeeSearchRequest.getName(),
+                employeeSearchRequest.getDobFrom(),
+                employeeSearchRequest.getDobTo(),
+                employeeSearchRequest.getGender(),
+                employeeSearchRequest.getSalaryRange(),
+                employeeSearchRequest.getPhone(),
+                employeeSearchRequest.getDepartmentId()
+        );
     }
 
     @Override
@@ -36,6 +44,6 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void delete(UUID id) {
-        employeeRepository.delete(id);
+        employeeRepository.deleteById(id);
     }
 }

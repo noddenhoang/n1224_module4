@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IDepartmentService {
-    List<Department> getAll();
-
-    Optional<Department> findById(Integer departmentId);
-
+    List<Department> findAll();
+    Optional<Department> findById(Integer id);
     Department save(Department department);
-
-    void deleteDepartment(Integer departmentId);
+    void delete(Integer departmentId);
 }

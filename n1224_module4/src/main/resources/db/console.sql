@@ -53,7 +53,5 @@ VALUES (UNHEX(REPLACE(UUID(), '-', '')), 'Thai Hoang Bao', '1990-10-18', 'MALE',
 -- Kiểm tra dữ liệu bảng employee
 SELECT * FROM employee;
 
--- Tìm kiếm employee theo UUID (phải convert từ string sang BINARY)
-SELECT *
-FROM employee
-WHERE id = UNHEX(REPLACE('a746d733-f411-11ef-a248-088fc30777b6', '-', ''));
+ALTER TABLE employee
+    ADD CONSTRAINT FK_EMPLOYEE_ON_DEPARTMENT FOREIGN KEY (department_id) REFERENCES department (id);
