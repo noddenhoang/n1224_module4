@@ -48,11 +48,12 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") UUID id) {
+    public ResponseEntity<?> delete(@PathVariable("id") UUID id) {
         employeeService.findById(id)
                 .orElseThrow(() -> new AppException(ErrorCode.EMPLOYEE_NOT_EXIST));
 
         employeeService.delete(id);
-        return JsonResponse.noContent();
+        return ResponseEntity.ok(JsonResponse.ok("Employee deleted successfully"));
     }
+
 }

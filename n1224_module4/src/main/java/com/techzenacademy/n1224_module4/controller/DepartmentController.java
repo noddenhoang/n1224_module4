@@ -40,6 +40,6 @@ public class DepartmentController {
                 .orElseThrow(() -> new AppException(ErrorCode.DEPARTMENT_NOT_EXIST));
 
         departmentService.deleteDepartment(department.getId());
-        return JsonResponse.noContent();
+        return ResponseEntity.ok(JsonResponse.ok("Departmant deleted successfully"));
     }
 }
