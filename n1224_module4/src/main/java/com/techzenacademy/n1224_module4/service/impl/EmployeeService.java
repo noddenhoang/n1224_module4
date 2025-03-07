@@ -7,9 +7,10 @@ import com.techzenacademy.n1224_module4.service.IEmployeeService;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -20,7 +21,7 @@ public class EmployeeService implements IEmployeeService {
     IEmployeeRepository employeeRepository;
 
     @Override
-    public List<Employee> findByAttributes(EmployeeSearchRequest employeeSearchRequest) {
+    public Page<Employee> findByAttributes(EmployeeSearchRequest employeeSearchRequest, Pageable pageable) {
         return employeeRepository.findByAttributes(
                 employeeSearchRequest.getName(),
                 employeeSearchRequest.getDobFrom(),
@@ -28,7 +29,8 @@ public class EmployeeService implements IEmployeeService {
                 employeeSearchRequest.getGender(),
                 employeeSearchRequest.getSalaryRange(),
                 employeeSearchRequest.getPhone(),
-                employeeSearchRequest.getDepartmentId()
+                employeeSearchRequest.getDepartmentId(),
+                pageable
         );
     }
 
